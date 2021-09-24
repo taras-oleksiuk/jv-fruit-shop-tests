@@ -1,5 +1,7 @@
 package basesyntax.service;
 
+import static basesyntax.db.FruitStorage.fruitsDataBase;
+
 import basesyntax.model.FruitRecordDto;
 import basesyntax.service.operation.DecreaseOperationHandler;
 import basesyntax.service.operation.IncreaseOperationHandler;
@@ -9,11 +11,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class AmountCalculatorImplTest {
     private static AmountCalculator amountCalculator;
+
+    @Before
+    public void setUp() throws Exception {
+        fruitsDataBase.clear();
+    }
 
     @BeforeClass
     public static void beforeAll() {
