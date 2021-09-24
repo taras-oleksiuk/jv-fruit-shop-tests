@@ -1,6 +1,5 @@
 package basesyntax.service.file;
 
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -14,9 +13,8 @@ public class WriterServiceImplTest {
         writerService = new WriterServiceImpl();
     }
 
-    @Test
+    @Test (expected = RuntimeException.class)
     public void write_incorrectPath_notOk() {
-        Assert.assertThrows("Throw exception for the empty path: ",
-                RuntimeException.class, () -> writerService.write(INCORRECT_PATH, ""));
+        writerService.write(INCORRECT_PATH, "");
     }
 }

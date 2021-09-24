@@ -1,7 +1,12 @@
 package basesyntax;
 
 import basesyntax.model.FruitRecordDto;
-import basesyntax.service.*;
+import basesyntax.service.AmountCalculator;
+import basesyntax.service.AmountCalculatorImpl;
+import basesyntax.service.OperationStrategy;
+import basesyntax.service.OperationStrategyImpl;
+import basesyntax.service.ReportService;
+import basesyntax.service.ReportServiceImpl;
 import basesyntax.service.data.DataParser;
 import basesyntax.service.data.DataParserImpl;
 import basesyntax.service.file.ReaderService;
