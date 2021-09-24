@@ -35,10 +35,10 @@ public class FruitRecordDto {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        FruitRecordDto operation = (FruitRecordDto) o;
-        return amount == operation.amount
-                && type == operation.type
-                && Objects.equals(fruit, operation.fruit);
+        FruitRecordDto fruitRecordDto = (FruitRecordDto) o;
+        return amount == fruitRecordDto.amount
+                && type == fruitRecordDto.type
+                && Objects.equals(fruit, fruitRecordDto.fruit);
     }
 
     @Override

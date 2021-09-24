@@ -3,6 +3,7 @@ package basesyntax.service.data;
 import basesyntax.model.FruitRecordDto;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -20,21 +21,22 @@ public class DataParserImplTest {
         data.add("b,banana,10");
         data.add("b,apple,15");
         List<FruitRecordDto> expected = new ArrayList<>();
-        expected.add(new FruitRecordDto(FruitRecordDto.Type.BALANCE, "banana", 10));
-        expected.add(new FruitRecordDto(FruitRecordDto.Type.BALANCE, "apple", 15));
+        List<FruitRecordDto> actual = new ArrayList<>();
         try {
-            List<FruitRecordDto> actual = dataParserImpl.formatData(data);
+            expected.add(new FruitRecordDto(FruitRecordDto.Type.BALANCE, "banana", 10));
+            expected.add(new FruitRecordDto(FruitRecordDto.Type.BALANCE, "apple", 15));
+            actual = dataParserImpl.formatData(data);
         } catch (RuntimeException e) {
-            throw new RuntimeException(e);
+            Assert.assertEquals("Data was not parsed correctly!", expected, actual);
         }
         data.add("p,apple,12");
         data.add("r,banana,14");
-        expected.add(new FruitRecordDto(FruitRecordDto.Type.PURCHASE, "apple", 12));
-        expected.add(new FruitRecordDto(FruitRecordDto.Type.RETURN, "banana", 14));
         try {
-            List<FruitRecordDto> actual = dataParserImpl.formatData(data);
+            expected.add(new FruitRecordDto(FruitRecordDto.Type.PURCHASE, "apple", 12));
+            expected.add(new FruitRecordDto(FruitRecordDto.Type.RETURN, "banana", 14));
+            actual = dataParserImpl.formatData(data);
         } catch (RuntimeException e) {
-            throw new RuntimeException(e);
+            Assert.assertEquals("Data was not parsed correctly!", expected, actual);
         }
     }
 
