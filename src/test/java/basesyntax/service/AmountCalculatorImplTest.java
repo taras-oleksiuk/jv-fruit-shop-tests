@@ -45,10 +45,11 @@ public class AmountCalculatorImplTest {
         amountCalculator.calculateDataForReport(fruitRecordDtos);
     }
 
-    @Test
+    @Test (expected = RuntimeException.class)
     public void calculateDataForReport_negativeAfterDecrease_notOk() {
         List<FruitRecordDto> fruitRecordDtos = new ArrayList<>();
         fruitRecordDtos.add(new FruitRecordDto(FruitRecordDto.Type.BALANCE, "banana", 15));
         fruitRecordDtos.add(new FruitRecordDto(FruitRecordDto.Type.PURCHASE, "banana", 20));
+        amountCalculator.calculateDataForReport(fruitRecordDtos);
     }
 }
