@@ -44,4 +44,9 @@ public class ReaderServiceImplTest {
         Assert.assertTrue("Result list shouldn't contain column names",
                 actual.contains(COLUMN_NAMES));
     }
+
+    @Test (expected = RuntimeException.class)
+    public void readFromFile_incorrectPath_notOk() {
+        readerService.readFromFile(INCORRECT_PATH);
+    }
 }

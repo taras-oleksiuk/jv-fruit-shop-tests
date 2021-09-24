@@ -22,7 +22,6 @@ public class DataParserImpl implements DataParser<FruitRecordDto, String> {
     @Override
     public List<FruitRecordDto> formatData(List<String> data) {
 
-        //DataValidator dataValidator = new DataValidatorImpl();
         List<FruitRecordDto> fruitRecordDtos = new ArrayList<>();
         data.remove(FIRST_LINE_OF_CSV);
         for (String proper : data) {
