@@ -1,6 +1,5 @@
 package basesyntax.service.file;
 
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -13,10 +12,15 @@ public class WriterServiceImplTest {
     public static void setUp() {
         writerService = new WriterServiceImpl();
     }
-/*    @Test
+
+    @Test
     public void write_correctPath_ok() {
-        Assert.assertTrue("File should have been written!", writerService.write(CORRECT_PATH, ""));
-    }*/
+        try {
+            writerService.write(CORRECT_PATH, "");
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Test (expected = RuntimeException.class)
     public void write_incorrectPath_notOk() {

@@ -3,7 +3,6 @@ package basesyntax.service.data;
 import basesyntax.model.FruitRecordDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -34,9 +33,8 @@ public class DataParserImplTest {
         expected.add(new FruitRecordDto(FruitRecordDto.Type.RETURN, "banana", 14));
         try {
             List<FruitRecordDto> actual = dataParserImpl.formatData(data);
-        }
-        catch (RuntimeException e) {
-            throw  new RuntimeException(e);
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
         }
     }
 
